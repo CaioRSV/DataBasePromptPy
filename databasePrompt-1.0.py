@@ -216,7 +216,7 @@ def TabelaChoose():
             print('ERRO: Insira um índice número existente')
     conex.commit()
     cls()
-#
+#-.-. .- .. --- .-. ... ...-
 #
 #
 fechar=0
