@@ -33,8 +33,6 @@ def TabelaChoose():
                 NumeroElementos=len(fetchada[0])
                 #
                 NumLeft=NumeroElementos
-                ############################## A ADAPTAR
-                ############################## A ADAPTAR
                 print('Tabela: ')
                 for i in fetchada:
                     #
@@ -43,11 +41,9 @@ def TabelaChoose():
                     NumUp=0
                     atual=''
                     for e in i:
-                        #input(str(e)+'-')
                         NumUp+=1
                         if len(listaPrint)<NumeroElementos:
                             listaPrint.append(str(e))
-                            #
                         if len(listaPrint)>=NumeroElementos:
                             c.execute("SELECT rowid, * FROM "+tabEscolhida+"")
                             for index, item in enumerate(listaPrint, start=1):
@@ -102,7 +98,7 @@ def TabelaChoose():
                         acaboLoop45+=1
                     if escolhaCRIAR.upper()!='S' and escolhaCRIAR.upper()!='N':
                         print('não compreendi')
-            ################
+            ##################################################################################################
             if comando.upper()=='CRIAR' and voidchecker==1:
                 c.execute("SELECT * FROM "+tabEscolhida+"")
                 namesColunas = list(map(lambda x: x[0], c.description))
@@ -138,7 +134,6 @@ def TabelaChoose():
                         acaboLoop45+=1
                     if escolhaCRIAR.upper()!='S' and escolhaCRIAR.upper()!='N':
                         print('não compreendi')                        
-            ##################################################################################################
             ###############################################################MODULO DE DELEÇÃO##################            
             if comando.upper()=='DELETAR':
                 delEscolha=input('Escolha o número da linha a ser deletada: ')
@@ -155,7 +150,7 @@ def TabelaChoose():
                         acaboLoop46+=1
                     if escolhaDEL.upper()!='S' and escolhaCRIAR.upper()!='N':
                         print('não compreendi')
-            ##################################################################################################
+            ###############################################################MODULO DE EDIÇÃO####################
             if comando.upper()=='EDITAR':
                 namesColunas2=[]
                 c.execute("SELECT rowid, * from "+tabEscolhida+"")
@@ -171,7 +166,7 @@ def TabelaChoose():
                     conex.commit()
                 if editColuna.upper() not in namesColunas2:
                     print('Essa é uma resposta inválida. Tente novamente.')
-            ###################################
+            ##################################################################################################
             cls()#
                     
     if a.isdigit()==True and a.upper()!='CRIAR' and int(a) not in listaIndices and a.upper()!='DELETAR':
@@ -217,12 +212,9 @@ def TabelaChoose():
     conex.commit()
     cls()
 #-.-. .- .. --- .-. ... ...-
-#
-#
 fechar=0
 while fechar==0:
     print('--------')
-    
     TabelaChoose()
 conex.commit()
 conex.close()
